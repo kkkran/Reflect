@@ -28,6 +28,7 @@
         <activity
             android:name="OtherActivity"
             android:exported="false" />
+        <service android:name=".service.DownloadService"/>
     </application>
 
 </manifest>
