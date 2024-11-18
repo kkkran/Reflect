@@ -26,8 +26,9 @@ class MainCase {
             cropArea.width().toInt(),
             cropArea.height().toInt()
         )
+       val endedBitmap= cropBitmapToCircle(endBitmap)
 
-        val filePath = FileUtils.saveBitmapToTempFile(context, endBitmap, "temp_image.png")
+        val filePath = FileUtils.saveBitmapToTempFile(context, endedBitmap, "temp_image.png")
         return filePath ?: ""
 
     }

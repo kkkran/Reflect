@@ -107,7 +107,6 @@ class MainActivity : AppCompatActivity() {
                     var endBitmap: Bitmap? = croppedBitmap
                     when (pickWhat) {
                         "image" -> {
-                            endBitmap = mainCase.cropBitmapToCircle(croppedBitmap!!)
                             findViewById<ImageView>(R.id.main_image).setImageBitmap(endBitmap)
                         }
 
