@@ -19,12 +19,13 @@ class SimpleToast(private val context: Context) : Toast(context) {
         toast.let { to ->
             to.view = baseRoot
         }
-        fun createLongToast(marginBottom: Int = 50, content: String = "提示"): Unit {
-            textview.text = content.toString()
-            toast.duration = LENGTH_LONG
-            toast.setGravity(Gravity.BOTTOM or Gravity.CENTER_HORIZONTAL, 0, -marginBottom)
-            toast.show()
-        }
+    }
+
+    fun createLongToast(marginBottom: Int = 50, content: String = "提示"): Unit {
+        textview.text = content.toString()
+        toast.duration = LENGTH_LONG
+        toast.setGravity(Gravity.BOTTOM or Gravity.CENTER_HORIZONTAL, 0, -marginBottom)
+        toast.show()
     }
 
     fun createShortToast(marginBottom: Int = 50, content: String = "提示"): Unit {

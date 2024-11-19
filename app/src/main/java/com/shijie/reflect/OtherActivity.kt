@@ -19,7 +19,7 @@ import com.shijie.reflect.R
 import java.io.ByteArrayOutputStream
 
 class OtherActivity : AppCompatActivity() {
-    private lateinit var imageUri: Uri
+    var imageUri: Uri ?=null
     private lateinit var photoView: PhotoView
     private lateinit var photoViewBackground: PhotoView
     private lateinit var overLayView: OverlayView
@@ -40,7 +40,7 @@ class OtherActivity : AppCompatActivity() {
             insets
         }
         NotificationHelper.createNotificationChannel(this)
-        imageUri = Uri.parse(intent.getStringExtra("imageUri"))
+        imageUri = Uri.parse(intent.getStringExtra("imageUri"))?:null
         pickWhat = intent.getStringExtra("pickWhat") ?: ""
         photoView = findViewById(R.id.other_photoView)
         photoViewBackground = findViewById(R.id.other_photoView_background)
