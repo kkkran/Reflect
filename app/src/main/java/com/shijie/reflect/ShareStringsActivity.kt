@@ -5,13 +5,14 @@ import android.util.Log
 import android.widget.Button
 import android.widget.EditText
 import androidx.appcompat.app.AppCompatActivity
+import com.shijie.reflect.base.BaseActivity
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 import java.io.OutputStream
 import java.net.Socket
 
-class ShareStrings : AppCompatActivity() {
+class ShareStringsActivity : BaseActivity(true) {
 
     private lateinit var etMessage: EditText
     private lateinit var etIpAddress: EditText
@@ -20,7 +21,6 @@ class ShareStrings : AppCompatActivity() {
     private lateinit var btnClear: Button
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_sharestrings)
         etMessage = findViewById(R.id.shareStrings_edit)
         etIpAddress = findViewById(R.id.shareStrings_ip)
         etPort = findViewById(R.id.shareStrings_port)
@@ -45,6 +45,8 @@ class ShareStrings : AppCompatActivity() {
             }
         }
     }
+
+    override fun getLayoutResId(): Int = R.layout.activity_sharestrings
 
     private fun sendMessage(message: String, ipAddress: String = "", port: Int = 0) {
         try {

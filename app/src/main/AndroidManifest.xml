@@ -24,7 +24,7 @@
             android:name="OtherActivity"
             android:exported="false" />
         <activity
-            android:name=".ShareStrings"
+            android:name=".ShareStringsActivity"
             android:exported="false" />
         <activity
             android:name=".WelcomeActivity"

@@ -32,9 +32,6 @@ class ShareP {
         mData.putAll(prefs.all)
         mWasInitialized = true
     }
-    constructor(
-
-    )
     private fun getSharedPreferences(): SharedPreferences =mAppContext.getSharedPreferences(mSharedPrefsName,Context.MODE_PRIVATE)
 
     @Synchronized

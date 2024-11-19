@@ -7,12 +7,12 @@ import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.shijie.reflect.base.BaseActivity
 
-class WelcomeActivity : AppCompatActivity() {
+class WelcomeActivity : BaseActivity(true) {
     private lateinit var recycleView: RecyclerView
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_welcome)
         recycleView = findViewById(R.id.welcome_recycle)
         val activities = getActivitiesFromManifest()
         recycleView.layoutManager = LinearLayoutManager(this)
@@ -37,6 +37,8 @@ class WelcomeActivity : AppCompatActivity() {
 
     }
 
+    override fun getLayoutResId(): Int = R.layout.activity_welcome
+
     private fun getActivitiesFromManifest(): List<ActivityInfo> {
         val activityList = mutableListOf<ActivityInfo>()
         try {
@@ -47,7 +49,7 @@ class WelcomeActivity : AppCompatActivity() {
             activities?.forEach { activity ->
                 val labelRes = activity.labelRes
                 val label = if (labelRes != 0) getString(labelRes) else activity.name
-                if (activity.name!=OtherActivity::class.java.name){
+                if (activity.name != OtherActivity::class.java.name) {
                     activityList.add(ActivityInfo(activity.name, label))
                 }
             }
