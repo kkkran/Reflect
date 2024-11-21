@@ -19,10 +19,10 @@ import com.shijie.reflect.SimpleToast
 abstract class BaseActivity(val needImmersive: Boolean) : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
         setContentView(getLayoutResId())
         if (needImmersive) {
-            ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
+            enableEdgeToEdge()
+            ViewCompat.setOnApplyWindowInsetsListener(findViewById(getMainView())) { v, insets ->
                 val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
                 v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
                 v.post {
@@ -34,6 +34,10 @@ abstract class BaseActivity(val needImmersive: Boolean) : AppCompatActivity() {
                 insets
             }
         }
+    }
+
+    open fun getMainView(): Int {
+        return R.id.main
     }
 
     private fun isColorLight(inverseColor: Int): Boolean {

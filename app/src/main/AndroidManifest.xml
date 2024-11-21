@@ -27,6 +27,9 @@
             android:name=".ShareStringsActivity"
             android:exported="false" />
         <activity
+            android:name=".appmi.FirstMainActivity"
+            android:exported="false" />
+        <activity
             android:name=".WelcomeActivity"
             android:exported="true">
             <intent-filter>
